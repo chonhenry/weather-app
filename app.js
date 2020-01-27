@@ -26,7 +26,9 @@ window.addEventListener("load", () => {
           const { temperature, summary, icon } = data.currently;
           temperatureDegree.textContent = temperature;
           temperatureDescription.textContent = summary;
-          locationTimezone.textContent = data.timezone;
+          locationTimezone.textContent = data.timezone
+            .replace("_", " ")
+            .replace("/", " / ");
 
           let celsius = Math.floor((temperature - 32) * (5 / 9));
 
